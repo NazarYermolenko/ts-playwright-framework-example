@@ -1,0 +1,17 @@
+{
+  "name": "ts-playwright-framework-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lat-long:ui": "playwright test ./specs/lat_long/ --project=chromium --config=playwright.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.32.3",
+    "playwright": "^1.32.3",
+    "typescript": "^5.0.4"
+  }
+}
