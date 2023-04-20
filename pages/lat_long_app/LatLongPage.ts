@@ -1,13 +1,19 @@
 import { Page } from "playwright";
 import { BasePage } from "../base/BasePage";
 import { ReporterWrapper } from "../base/ReporterWrapper";
-import { FindForm } from "./components/FindForm";
+import { FindForm } from "./components/find-form/FindForm";
+import { ResultSection } from "./components/result-section/ResultSection";
 
 export class LatLongPage extends BasePage {
-    latLongFormWrapper() { return this.page.locator('#frmPlace') }
+    private latLongFormWrapper() { return this.page.locator('#frmPlace') }
+    private resultSectionWrapper() { return this.page.locator('//div[contains(., "Lat Long") and contains(@class, "bg-gray")]') }
 
     get findForm() {
         return new FindForm(this.page, () => this.latLongFormWrapper())
+    }
+
+    get resultSection() {
+        return new ResultSection(this.page, () => this.resultSectionWrapper())
     }
 
     constructor(page: Page) {

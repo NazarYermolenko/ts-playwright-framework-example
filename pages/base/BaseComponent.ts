@@ -1,8 +1,10 @@
-import { Page } from "playwright";
+import { Locator, Page } from "playwright";
 
 export class BaseComponent {
-    private page: Page;
-    constructor(page: Page) {
+    protected page: Page;
+    protected wrapper: () => Locator
+    constructor(page: Page, wrapper: () => Locator) {
         this.page = page
+        this.wrapper = wrapper
     }
 }
